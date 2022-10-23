@@ -1,4 +1,4 @@
-const PERCENTAGE = [0.32, 0.25, 0.2, 0.17, 0.15, 0.13];
+const PERCENTAGE = [0.32, 0.25, 0.2, 0.17, 0.151, 0.137];
 const GAP = [-7, 3, 2, 4, 6, 4];
 
 const FOOTER = document.createElement("footer");
@@ -10,6 +10,15 @@ document.body.prepend(MAIN);
 const HEADER = document.createElement("header");
 document.body.prepend(HEADER);
 const GEM_DROPDOWN = document.createElement("select");
+
+const BURGER_ICON = document.createElement("div");
+BURGER_ICON.classList.add("burger-icon");
+document.body.prepend(BURGER_ICON);
+for (let i = 0; i < 3; i++) {
+  const BURGER_ELEMENT = document.createElement("span");
+  BURGER_ELEMENT.classList.add("burger-element");
+  BURGER_ICON.append(BURGER_ELEMENT);
+}
 
 let STATS_DOM_COLLECTION = [];
 const STATS_SHEET = document.createElement("div");
@@ -62,6 +71,7 @@ SHUFFLE_BUTTON.textContent = "Shuffle";
 const COUNTER = document.createElement("div");
 COUNTER.classList.add("counter");
 FOOTER.prepend(COUNTER);
+COUNTER.textContent = `Moves: 0`;
 
 const TIMER = document.createElement("div");
 TIMER.classList.add("timer");
@@ -76,7 +86,7 @@ HEADER.append(SOUND_BUTTON);
 const QUICK_SOLVE = document.createElement("div");
 QUICK_SOLVE.classList.add("quick-solve");
 HEADER.append(QUICK_SOLVE);
-QUICK_SOLVE.textContent = "solve";
+QUICK_SOLVE.textContent = "cheat";
 
 const SAVE = document.createElement("div");
 SAVE.classList.add("save");
@@ -99,6 +109,32 @@ GEM_WRAPPER.append(GEM_CONTAINER);
 const WIN_MESSAGE = document.createElement("div");
 WIN_MESSAGE.classList.add("win-message");
 GEM_WRAPPER.append(WIN_MESSAGE);
+
+const SAVE_MESSAGE = document.createElement("div");
+SAVE_MESSAGE.classList.add("save-message");
+GEM_WRAPPER.append(SAVE_MESSAGE);
+SAVE_MESSAGE.textContent = "Reload the page to continue your saved game";
+const CONSENT_BUTTON = document.createElement("div");
+CONSENT_BUTTON.classList.add("consent-button");
+SAVE_MESSAGE.append(CONSENT_BUTTON);
+CONSENT_BUTTON.textContent = "OK";
+
+const LOAD_MESSAGE = document.createElement("div");
+LOAD_MESSAGE.classList.add("load-message");
+GEM_WRAPPER.append(LOAD_MESSAGE);
+LOAD_MESSAGE.textContent = "You have an unsaved game. Do you want to continue?";
+const CONTINUE_GAME = document.createElement("div");
+CONTINUE_GAME.classList.add("continue-button");
+LOAD_MESSAGE.append(CONTINUE_GAME);
+CONTINUE_GAME.textContent = "continue";
+const RESET_GAME = document.createElement("div");
+RESET_GAME.classList.add("reset-button");
+LOAD_MESSAGE.append(RESET_GAME);
+RESET_GAME.textContent = "delete and start new";
+const START_GAME = document.createElement("div");
+START_GAME.classList.add("start-button");
+LOAD_MESSAGE.append(START_GAME);
+START_GAME.textContent = "start new";
 
 const HOORAY_MESSAGE = document.createElement("h3");
 HOORAY_MESSAGE.classList.add("hooray-message");
@@ -141,4 +177,34 @@ const OVERLAY2 = document.createElement("div");
 OVERLAY2.classList.add("overlay");
 document.body.prepend(OVERLAY2);
 
-export { GEM_DROPDOWN, GEM_CONTAINER, SHUFFLE_BUTTON, COUNTER, TIMER, PERCENTAGE, GAP, SOUND_BUTTON, QUICK_SOLVE, WIN_MESSAGE, OVERLAY, STATS, SAVE, STATS_SHEET, RESULT_MESSAGE, ADD_BUTTON, DEFAULT_BUTTON, NAME_INPUT, OVERLAY2, CROSS_ICON, STATS_TABLE };
+export {
+  GEM_DROPDOWN,
+  GEM_CONTAINER,
+  SHUFFLE_BUTTON,
+  COUNTER,
+  TIMER,
+  PERCENTAGE,
+  GAP,
+  SOUND_BUTTON,
+  QUICK_SOLVE,
+  WIN_MESSAGE,
+  OVERLAY,
+  STATS,
+  SAVE,
+  STATS_SHEET,
+  RESULT_MESSAGE,
+  ADD_BUTTON,
+  DEFAULT_BUTTON,
+  NAME_INPUT,
+  OVERLAY2,
+  CROSS_ICON,
+  STATS_TABLE,
+  SAVE_MESSAGE,
+  CONSENT_BUTTON,
+  LOAD_MESSAGE,
+  CONTINUE_GAME,
+  START_GAME,
+  RESET_GAME,
+  BURGER_ICON,
+  HEADER
+};

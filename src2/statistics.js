@@ -1,5 +1,6 @@
 import { OVERLAY, STATS_SHEET, STATS_TABLE } from "./dom-elements";
 import { wasShown } from "./win";
+import { renderTime } from "./time";
 
 let winners = [];
 
@@ -49,7 +50,7 @@ export function hideStatistics() {
 export function generateStatistics() {
     for (let i = 0; i < winners.length; i++) {
         STATS_TABLE.children[i + 1].children[1].textContent = winners[i].name;
-        STATS_TABLE.children[i + 1].children[2].textContent = winners[i].time;
+        STATS_TABLE.children[i + 1].children[2].textContent = renderTime(winners[i].time);
         STATS_TABLE.children[i + 1].children[3].textContent = winners[i].moves;
     }
 }

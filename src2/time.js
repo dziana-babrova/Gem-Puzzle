@@ -20,11 +20,10 @@ export function renderTime(time) {
 }
 
 export function startTimer() {
-        time++;
-        TIMER.textContent = renderTime(time);
-
-        timeout = setTimeout(startTimer, 1000);
-        timerStarted = true;
+    time++;
+    TIMER.textContent = renderTime(time);
+    timeout = setTimeout(startTimer, 1000);
+    timerStarted = true;
 }
 
 export function ResetTimer() {
@@ -36,6 +35,11 @@ export function ResetTimer() {
 
 export function pauseTimer() {
     clearTimeout(timeout);
+}
+
+export function setLoadedTime() {
+  time = localStorage.getItem("time");
+  TIMER.textContent = renderTime(time);
 }
 
 export { timerStarted, time };
