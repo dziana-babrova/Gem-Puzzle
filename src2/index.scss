@@ -13,19 +13,25 @@
 body {
     position: relative;
     background-image: url("./assets/background.jpg");
+    width: 100%;
     height: 100vh;
     box-sizing: border-box;
+    display: block;
     overflow-x: hidden;
+
+        @media screen and (max-width: 640px) {
+        height: 100%;
+        }
 }
 
 main {
     display: flex;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-header, footer {
+header, .footer {
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
@@ -152,10 +158,11 @@ header {
 
 }
 
-footer {
-    padding: 20px;
+.footer {
+    padding: 20px 20px 10px 20px;
 
     @media screen and (max-width: 640px) {
+        padding-top: 70px;
         justify-content: center;
     }
 
@@ -274,13 +281,9 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
     border-radius: 20px;
     background-image: url("./assets/border2.jpg");
 
-    @media screen and (max-width: 640px) {
-        margin-top: 130px;
-    }
 
     @media screen and (max-width: 410px) {
         margin: 10px;
-        margin-top: 130px;
     }
 
 }
@@ -292,7 +295,7 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
     padding: 10px;
     margin: 0 auto;
     box-sizing: border-box;
-    transition: all 1s ease-in-out;
+    transition: bottom 1s ease-in-out, left 1s ease-in-out;
     position: relative;
 
 }
@@ -302,7 +305,7 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
     height: 100%;
     border-radius: 10px;
     position: relative;
-    transition: all 0.3s ease-in;
+    transition: left 0.3s ease-in, bottom 0.3s ease-in;
     bottom: 0;
     left: 0;
     box-sizing: border-box;
@@ -322,7 +325,7 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    transition: all 1s ease-in-out;
+    // transition: all 1s ease-in-out;
 }
 
 .gem-element-3 {
@@ -752,4 +755,13 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
     .header-visible {
             right: 0;
             z-index: 11;
+    }
+
+
+    .draggable {
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
     }

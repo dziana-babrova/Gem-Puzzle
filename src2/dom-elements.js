@@ -1,11 +1,12 @@
 const PERCENTAGE = [0.32, 0.25, 0.2, 0.17, 0.151, 0.137];
 const GAP = [-7, 3, 2, 4, 6, 4];
 
-const FOOTER = document.createElement("footer");
-document.body.prepend(FOOTER);
-
 const MAIN = document.createElement("main");
 document.body.prepend(MAIN);
+
+const FOOTER = document.createElement("div");
+FOOTER.classList.add("footer");
+document.body.prepend(FOOTER);
 
 const HEADER = document.createElement("header");
 document.body.prepend(HEADER);

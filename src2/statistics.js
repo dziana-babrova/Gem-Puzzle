@@ -5,6 +5,10 @@ import { renderTime } from "./time";
 let winners = [];
 
 export function addWinner(moves, time, name = "Unknown") {
+    if (name === "") {
+        name = "Unknown";
+    };
+
     if (wasShown) {
         winners.push({
             name: name,
@@ -31,7 +35,6 @@ function addWinnersToLS() {
 export function retrieveWinnersFromSL() {
     if (localStorage.getItem("winners")) {
         winners = JSON.parse(localStorage.getItem("winners"));
-        console.log(winners);
     } else {
         winners = [];
     }

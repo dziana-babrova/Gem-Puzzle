@@ -23,6 +23,7 @@ export function setDraggability(matrix) {
   if (i !== 0) {
     const draggedEl = GEMELEMENTS_COLLECTION[index - GEM_DROPDOWN.value];
     draggedEl.id = "draggable1";
+    draggedEl.classList.add("draggable");
     draggedEl.setAttribute("draggable", true);
     draggedEl.addEventListener("dragstart", drag, false);
     draggedEl.addEventListener("drag", dragStart, false);
@@ -31,6 +32,7 @@ export function setDraggability(matrix) {
   if (i < GEM_DROPDOWN.value - 1) {
     const draggedEl2 = GEMELEMENTS_COLLECTION[index + Number(GEM_DROPDOWN.value)];
     draggedEl2.id = "draggable2";
+    draggedEl2.classList.add("draggable");
     draggedEl2.setAttribute("draggable", true);
     draggedEl2.addEventListener("dragstart", drag, false);
     draggedEl2.addEventListener("drag", dragStart, false);
@@ -39,6 +41,7 @@ export function setDraggability(matrix) {
   if (j !== 0) {
     const draggedEl3 = GEMELEMENTS_COLLECTION[index - 1];
     draggedEl3.id = "draggable3";
+    draggedEl3.classList.add("draggable");
     draggedEl3.setAttribute("draggable", true);
     draggedEl3.addEventListener("dragstart", drag, false);
     draggedEl3.addEventListener("drag", dragStart, false);
@@ -47,6 +50,7 @@ export function setDraggability(matrix) {
   if (j < GEM_DROPDOWN.value - 1) {
     const draggedEl4 = GEMELEMENTS_COLLECTION[index + 1];
     draggedEl4.id = "draggable4";
+    draggedEl4.classList.add("draggable");
     draggedEl4.setAttribute("draggable", true);
     draggedEl4.addEventListener("dragstart", drag, false);
     draggedEl4.addEventListener("drag", dragStart, false);
