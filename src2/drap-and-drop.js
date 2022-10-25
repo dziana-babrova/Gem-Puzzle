@@ -4,6 +4,7 @@ import { startTimer, timerStarted, time } from "./time";
 import { moveCounter, increaseCounter } from "./move-count";
 import { playSound } from "./sound";
 import { renderDom } from "./draw-elements";
+import { moveElement } from "./move-element";
 
 export function drag(e) {
   e.dataTransfer.setData("id", e.target.id);
@@ -52,6 +53,7 @@ export function drop(gemMatrix, solvedGemMatix) {
       gemMatrix[i][j] = temp;
     }
 
+      moveElement(gemMatrix, solvedGemMatix);
       playSound();
       increaseCounter();
       if (!timerStarted) {

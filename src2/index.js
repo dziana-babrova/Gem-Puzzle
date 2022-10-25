@@ -70,7 +70,7 @@ STATS.addEventListener("click", showStatistics);
 
 SAVE.addEventListener("click", closeBurgerMenu);
 SAVE.addEventListener("click", function () {
-  return saveGame(gemMatrix, moveCounter, time);
+  return saveGame(gemMatrix, time, moveCounter);
 });
 SAVE.addEventListener("click", showSaveMessage);
 CONSENT_BUTTON.addEventListener("click", hideSaveMessage);
