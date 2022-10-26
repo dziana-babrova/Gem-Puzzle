@@ -11,15 +11,16 @@ let gemMatrix = [];
 let solvedGemMatix = [];
 
 export function createGemPuzzle() {
+  resetWasShown();
   gemMatrix = createNewGemPuzzle(gemArray, GEM_DROPDOWN.value);
   solvedGemMatix = createReference();
   renderDom(gemMatrix, solvedGemMatix);
   resetCounter();
   ResetTimer();
-  resetWasShown();
 }
 
 export function createSolvedPuzzle() {
+  resetWasShown();
   gemArray = createGemArray();
   gemArray = gemArray.slice(1);
   gemArray.push(0);
@@ -31,17 +32,16 @@ export function createSolvedPuzzle() {
   renderDom(gemMatrix, solvedGemMatix);
   resetCounter();
   ResetTimer();
-  resetWasShown();
 }
 
 export function loadSavedGemPuzzle() {
+  resetWasShown();
   GEM_DROPDOWN.value = JSON.parse(localStorage.getItem("gameScheme")).length;
   gemMatrix = JSON.parse(localStorage.getItem("gameScheme"));
   solvedGemMatix = createReference();
   renderDom(gemMatrix, solvedGemMatix);
   setLoadedCounter();
   setLoadedTime();
-  resetWasShown();
 }
 
 export { gemMatrix, solvedGemMatix };

@@ -1,6 +1,7 @@
 import { GEM_CONTAINER, GEM_DROPDOWN } from "./dom-elements";
 import { setDraggability } from "./dragability";
 import { moveElement } from "./move-element";
+import { wasShown } from "./win";
 
 export let GEMELEMENTS_COLLECTION = [];
 
@@ -30,6 +31,8 @@ export function renderDom(gemMatrix, solvedGemMatix) {
     fillDomWithElements(array);
     setDraggability(array);
 
+  if (!wasShown) {
     GEM_CONTAINER.onclick = moveElement(gemMatrix, solvedGemMatix);
+  }
 }
 ;

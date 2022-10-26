@@ -2,6 +2,7 @@ import { drag, allowDrop, drageEnd, dragStart, drop, dragover_handler } from "./
 import { GEM_DROPDOWN } from "./dom-elements";
 import { gemMatrix, solvedGemMatix } from "./generate-frames";
 import { GEMELEMENTS_COLLECTION } from "./draw-elements";
+import { wasShown } from "./win";
 
 export function isDraggable(number, matrix) {
 let array = matrix.flat();
@@ -22,42 +23,52 @@ export function setDraggability(matrix) {
   let j = index % GEM_DROPDOWN.value;
   if (i !== 0) {
     const draggedEl = GEMELEMENTS_COLLECTION[index - GEM_DROPDOWN.value];
-    draggedEl.id = "draggable1";
-    draggedEl.classList.add("draggable");
-    draggedEl.setAttribute("draggable", true);
-    draggedEl.addEventListener("dragstart", drag, false);
-    draggedEl.addEventListener("drag", dragStart, false);
-    draggedEl.addEventListener("dragend", drageEnd, false);
+    if (!wasShown) {
+      draggedEl.id = "draggable1";
+      draggedEl.classList.add("draggable");
+      draggedEl.setAttribute("draggable", true);
+      draggedEl.addEventListener("dragstart", drag, false);
+      draggedEl.addEventListener("drag", dragStart, false);
+      draggedEl.addEventListener("dragend", drageEnd, false);
+    }
   }
   if (i < GEM_DROPDOWN.value - 1) {
     const draggedEl2 = GEMELEMENTS_COLLECTION[index + Number(GEM_DROPDOWN.value)];
-    draggedEl2.id = "draggable2";
-    draggedEl2.classList.add("draggable");
-    draggedEl2.setAttribute("draggable", true);
-    draggedEl2.addEventListener("dragstart", drag, false);
-    draggedEl2.addEventListener("drag", dragStart, false);
-    draggedEl2.addEventListener("dragend", drageEnd, false);
+    if (!wasShown) {
+      draggedEl2.id = "draggable2";
+      draggedEl2.classList.add("draggable");
+      draggedEl2.setAttribute("draggable", true);
+      draggedEl2.addEventListener("dragstart", drag, false);
+      draggedEl2.addEventListener("drag", dragStart, false);
+      draggedEl2.addEventListener("dragend", drageEnd, false);
+    }
   }
   if (j !== 0) {
     const draggedEl3 = GEMELEMENTS_COLLECTION[index - 1];
-    draggedEl3.id = "draggable3";
-    draggedEl3.classList.add("draggable");
-    draggedEl3.setAttribute("draggable", true);
-    draggedEl3.addEventListener("dragstart", drag, false);
-    draggedEl3.addEventListener("drag", dragStart, false);
-    draggedEl3.addEventListener("dragend", drageEnd, false);
+    if (!wasShown) {
+      draggedEl3.id = "draggable3";
+      draggedEl3.classList.add("draggable");
+      draggedEl3.setAttribute("draggable", true);
+      draggedEl3.addEventListener("dragstart", drag, false);
+      draggedEl3.addEventListener("drag", dragStart, false);
+      draggedEl3.addEventListener("dragend", drageEnd, false);
+    }
   }
   if (j < GEM_DROPDOWN.value - 1) {
     const draggedEl4 = GEMELEMENTS_COLLECTION[index + 1];
-    draggedEl4.id = "draggable4";
-    draggedEl4.classList.add("draggable");
-    draggedEl4.setAttribute("draggable", true);
-    draggedEl4.addEventListener("dragstart", drag, false);
-    draggedEl4.addEventListener("drag", dragStart, false);
-    draggedEl4.addEventListener("dragend", drageEnd, false);
+    if (!wasShown) {
+      draggedEl4.id = "draggable4";
+      draggedEl4.classList.add("draggable");
+      draggedEl4.setAttribute("draggable", true);
+      draggedEl4.addEventListener("dragstart", drag, false);
+      draggedEl4.addEventListener("drag", dragStart, false);
+      draggedEl4.addEventListener("dragend", drageEnd, false);
+    }
   }
 
   const nullEl = GEMELEMENTS_COLLECTION[index];
-  nullEl.addEventListener("dragover", allowDrop);
-  nullEl.addEventListener("drop", drop(gemMatrix, solvedGemMatix));
+  if (!wasShown) {
+    nullEl.addEventListener("dragover", allowDrop);
+    nullEl.addEventListener("drop", drop(gemMatrix, solvedGemMatix));
+  }
 }

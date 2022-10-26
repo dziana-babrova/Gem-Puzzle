@@ -7,8 +7,8 @@ import { renderDom } from "./draw-elements";
 import { moveElement } from "./move-element";
 
 export function drag(e) {
-  e.dataTransfer.setData("id", e.target.id);
-  e.target.classList.add("invisible");
+    e.dataTransfer.setData("id", e.target.id);
+    e.target.classList.add("invisible");
 }
 
 export function dragStart(e) {
@@ -53,7 +53,6 @@ export function drop(gemMatrix, solvedGemMatix) {
       gemMatrix[i][j] = temp;
     }
 
-      moveElement(gemMatrix, solvedGemMatix);
       playSound();
       increaseCounter();
       if (!timerStarted) {
